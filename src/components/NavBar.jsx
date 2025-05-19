@@ -35,9 +35,9 @@ function NavBar() {
     <>
       <div
         className={`fixed w-full flex justify-between font-medium items-center p-3 z-50 transition-all duration-300 ${
-          isInHomeViewport ? 'bg-transparent' : 'bg-gray-100'
+          isInHomeViewport ? 'bg-transparent' : 'bg-white'
         }`}
-        style={{ background: isInHomeViewport ? 'transparent' : '#F3F4F6' }}
+        style={{ background: isInHomeViewport ? 'transparent' : '#FFFFFF' }}
       >
         <div className="text-sm align-middle relative">
           <ScrollLink
@@ -96,7 +96,7 @@ function NavBar() {
       </div>
 
       <div
-        className={`fixed top-0 right-0 h-full w-full bg-gray-100 p-8 transition-transform duration-500 transform ${
+        className={`fixed top-0 right-0 h-full w-full bg-white p-8 transition-transform duration-500 transform ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } md:hidden z-50`}
       >

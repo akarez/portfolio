@@ -30,7 +30,7 @@ function Blog() {
   }, []);
 
   return (
-    <div id="blog" className="bg-gray-100 py-10 px-6">
+    <div id="blog" className="bg-white py-10 px-6">
       <div className="flex flex-col md:flex-row max-w-5xl mx-auto">
         <h1 className="text-left md:text-lg mb-8 md:mb-0 md:mr-8 font-medium md:w-1/4 uppercase">
           Blog
@@ -39,7 +39,7 @@ function Blog() {
           {posts.map((post) => (
             <div
             key={post.slug}
-            className="relative mb-8 bg-gray-100 rounded-xl border border-gray-200 shadow transition-transform transform hover:shadow-lg hover:-translate-x-1 hover:bg-gray-50 px-6 py-5"
+            className="relative mb-8 bg-white rounded-xl border border-gray-200 shadow transition-transform transform hover:shadow-lg hover:-translate-x-1 hover:bg-gray-50 px-6 py-5"
           >          
               <div className="flex flex-wrap items-center mb-2">
                 <h2 className="font-medium mr-2">
