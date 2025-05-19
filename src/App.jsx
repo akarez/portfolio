@@ -1,28 +1,20 @@
-import React from 'react'
-import NavBar from './components/NavBar'
-import Home from './components/Home'
-import About from './components/About'
-import Research from './components/Research'
-import Experience from './components/Experience'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import Blog from './components/Blog'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop'; 
+import NavBar from './components/NavBar';
+import HomePage from './pages/HomePage';
+import BlogPost from './pages/BlogPost';
 
 function App() {
-
   return (
-    <div className='App'> 
+    <Router>
+      <ScrollToTop /> 
       <NavBar />
-      <Home />
-      <About />
-      <Research />
-      <Experience />
-      <Projects />
-      {/* <Contact /> */}
-      <Footer />
-    </div>
-  )
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
