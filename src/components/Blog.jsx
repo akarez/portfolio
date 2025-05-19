@@ -37,26 +37,21 @@ function Blog() {
         </h1>
         <div className="relative md:w-3/4 overflow-visible">
           {posts.map((post) => (
-            <div
+            <Link
             key={post.slug}
-            className="relative mb-8 bg-white rounded-xl border border-gray-200 shadow transition-transform transform hover:shadow-lg hover:-translate-x-1 hover:bg-gray-50 px-6 py-5"
-          >          
-              <div className="flex flex-wrap items-center mb-2">
-                <h2 className="font-medium mr-2">
-                  <Link
-                    to={`/blog/${post.slug}`}
-                    onClick={() => {
-                      sessionStorage.setItem('scroll-position', window.scrollY.toString());
-                    }}
-                    className="inline-flex items-center text-black"
-                  >
-                    {post.title}
-                  </Link>
-                </h2>
-              </div>
-              {/* <p className="md:text-base text-sm text-gray-600 mb-2">Date: {post.date} </p> */}
-              <p className="text-base text-gray-600 text-sm">{post.excerpt}</p>
+            to={`/blog/${post.slug}`}
+            onClick={() => {
+              sessionStorage.setItem('scroll-position', window.scrollY.toString());
+            }}
+            className="block relative mb-8 bg-white rounded-xl border border-gray-200 shadow transition-transform transform hover:shadow-lg hover:-translate-x-1 hover:bg-gray-50 px-6 py-5"
+          >
+            <div className="flex flex-wrap items-center mb-2">
+              <h2 className="font-medium text-black">
+                {post.title}
+              </h2>
             </div>
+            <p className="text-base text-gray-600 text-sm">{post.excerpt}</p>
+          </Link>
           ))}
         </div>
       </div>
