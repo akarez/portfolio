@@ -6,9 +6,9 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        mono: ['Fira Code', 'monospace']
+        mono: ['"JetBrains Mono"', 'monospace']
       }
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }

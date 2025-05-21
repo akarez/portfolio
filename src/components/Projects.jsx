@@ -35,7 +35,7 @@ const projects = [
 
 function Projects() {
     return (
-        <div id="projects" className="bg-gray-100 py-10">
+        <div id="projects" className="bg-white py-10">
             <div className="flex flex-col max-w-7xl mx-auto px-6">
                 <h1 className="md:text-xl text-center font-medium mb-12 uppercase">
                     Featured Projects

@@ -27,7 +27,7 @@ function PCBViewer({objPath, mtlPath, pos_x, pos_y, pos_z, zoom}) {
 
         // Create Scene
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xF3F4F6); // tailwind gray-100
+        scene.background = new THREE.Color(0xFFFFFF); // tailwind bg-white
 
         // Create Orthographic Camera
         const scale = 4;

@@ -6,7 +6,7 @@ function NFCPage() {
     const navigate = useNavigate();
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+        <div className="flex flex-col items-center justify-center h-screen bg-white">
             <div className="w-full flex items-center h-2/5 md:h-[600px]">
                 <PCBViewer 
                     objPath="/assets/projects/NFC.obj" 

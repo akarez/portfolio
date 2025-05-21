@@ -36,7 +36,7 @@ const experience = [
 
 function Experience() {
   return (
-    <div id="experience" className="bg-gray-100 py-10 px-6">
+    <div id="experience" className="bg-white py-10 px-6">
       <div className="flex flex-col md:flex-row max-w-5xl mx-auto">
         <h1 className="text-left md:text-lg mb-8 md:mb-0 md:mr-8 font-medium md:w-1/4 uppercase">
           Experience
