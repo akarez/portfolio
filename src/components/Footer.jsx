@@ -3,7 +3,7 @@ import { FaEnvelope, FaLinkedin, FaGithub, FaGoogleScholar, FaFlaskVial } from '
 
 function Footer() {
     return (
-        <footer className='flex flex-col items-center bg-black py-20'>
+        <footer className='flex flex-col items-center bg-black py-20 snap-start snap-always pt-32'>
             <div className='flex space-x-6 mb-4'>
                 <a href='mailto:ahmed1@usf.edu' target='_blank' rel='noopener noreferrer' className='text-gray-100 hover:text-white transition'>
                     <FaEnvelope size={26} />

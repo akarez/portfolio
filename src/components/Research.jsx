@@ -1,77 +1,97 @@
 import React from 'react';
+import { MdArrowOutward } from "react-icons/md";
 
-import PEPHS from '/assets/research/GLSVLSI_2024_Modular_Security_Evaluation_Platform_for_PCLCS__Camera_Ready_.pdf';
-import PEP from '/assets/research/IFIP_2023_Research_Demo__PCLC_Emulation_Platform__Camera_Ready_.pdf';
-import FAMID from '/assets/research/IFIP_2023__False_Alarms_Mitigation_in_IoMT_Devices__Camera_Ready_.pdf';
+const papers = [
+  {
+    title: 'Malware Detection in Embedded Devices Using Artificial Hardware Immunity',
+    authors: 'Farhath Zareen, Ahmed Ghoneim, Mateus A. Fernandes, Samir Ahmed, Robert Karam',
+    venue: 'Journal of Hardware and Systems Security, Springer Nature',
+    year: '2025',
+    doi: 'https://link.springer.com/article/10.1007/s41635-025-00166-w',
+  },
+  {
+    title: 'Emerging Trends in Security-by-Design for Implantable Medical Devices',
+    authors: 'Samir Ahmed, Robert Karam',
+    venue: 'IFIP/IEEE International Conference on Very Large Scale Integration',
+    year: '2024',
+    doi: 'https://vlsisoc2024.nl/',
+  },
+  {
+    title: 'Modular Security Evaluation Platform for Physiological Closed-Loop Control Systems',
+    authors: 'Samir Ahmed, Shakil Mahmud, Robert Karam',
+    venue: 'In Proceedings of the Great Lakes Symposium on VLSI',
+    year: '2024',
+    doi: 'https://doi.org/10.1145/3649476.3660362',
+  },
+  {
+    title: 'PEP: Hardware Emulation Platform for Physiological Closed-Loop Control Systems',
+    authors: 'Shakil Mahmud, Samir Ahmed, Robert Karam',
+    venue: 'IFIP International Internet of Things (IoT) Conference',
+    year: '2023',
+    doi: 'https://doi.org/10.1007/978-3-031-45882-8_30',
+  },
+  {
+    title: 'FAMID: False Alarms Mitigation in IoMT Devices',
+    authors: 'Shakil Mahmud, Myles Keller, Samir Ahmed, Robert Karam',
+    venue: 'IFIP International Internet of Things (IoT) Conference',
+    year: '2023',
+    doi: 'https://doi.org/10.1007/978-3-031-45878-1_14',
+  },
+];
+
+const PaperItem = ({ paper }) => (
+  <div className="mb-10">
+    <h2 className="font-medium md:text-lg">{paper.title}</h2>
+
+    <p
+      className="text-base text-gray-600 mb-2"
+      dangerouslySetInnerHTML={{
+        __html: paper.authors.replace(
+          /Samir Ahmed/g,
+          '<span class="underline underline-offset-2 decoration-gray-500">Samir Ahmed</span>'
+        ),
+      }}
+    />
+
+    <p className="text-base text-gray-800">
+      {paper.doi ? (
+        <a
+          href={paper.doi}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-black no-underline hover:text-black"
+        >
+          {paper.venue}, {paper.year}
+          <MdArrowOutward
+            size={18}
+            className="inline-block align-text-top ml-2 translate-y-[+1px]"
+          />
+        </a>
+      ) : (
+        <span>
+          {paper.venue}, {paper.year}
+        </span>
+      )}
+    </p>
+  </div>
+);
 
 function Research() {
-    return (
-        <div id="research" className="bg-white  py-10 px-6">
-            <div className="flex flex-col md:flex-row max-w-5xl mx-auto">
-                <h1 className="text-left uppercase mb-8 md:mb-0 md:mr-8 font-medium md:w-1/4 md:text-lg">
-                    Research
-                </h1>
-                <div className="flex flex-col md:w-3/4">
-                    <div className="mb-10">
-                        <h2 className="font-medium md:text-lg">Machine Learning on the Edge: Challenges and Techniques for On-Device Learning</h2>
-                        <p className="text-base text-gray-600 mb-2">Samir Ahmed, Robert Karam</p>
-                        <p className="text-base">IBM IEEE CAS/EDS – AI Compute Symposium (Poster Session), 2024</p>
-                    </div>
-                    <div className="mb-10">
-                        <h2 className="font-medium md:text-lg">Modular Security Evaluation Platform for Physiological Closed-Loop Control Systems</h2>
-                        <p className="text-base text-gray-600 mb-2">Samir Ahmed, Shakil Mahmud, Robert Karam</p>
-                        <p className="text-base">In Proceedings of the Great Lakes Symposium on VLSI, 2024</p>
-                        <div className="flex mt-1 space-x-4">
-                            <a href={PEPHS} target="_blank" rel="noopener noreferrer">
-                                <button className="bg-black text-white py-0.5 px-2 rounded text-xs">
-                                    PDF
-                                </button>
-                            </a>
-                            <a href="https://doi.org/10.1145/3649476.3660362" target="_blank" rel="noopener noreferrer">
-                                <button className="bg-black text-white py-0.5 px-2 rounded text-xs">
-                                    DOI
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                    <div className="mb-10">
-                        <h2 className="font-medium md:text-lg">PEP: Hardware Emulation Platform for Physiological Closed-Loop Control Systems</h2>
-                        <p className="text-base text-gray-600 mb-2">Shakil Mahmud, Samir Ahmed, Robert Karam</p>
-                        <p className="text-base">IFIP International Internet of Things (IoT) Conference, 2023</p>
-                        <div className="flex mt-1 space-x-4">
-                            <a href={PEP} target="_blank" rel="noopener noreferrer">
-                                <button className="bg-black text-white py-0.5 px-2 rounded text-xs">
-                                    PDF
-                                </button>
-                            </a>
-                            <a href="https://doi.org/10.1007/978-3-031-45882-8_30" target="_blank" rel="noopener noreferrer">
-                                <button className="bg-black text-white py-0.5 px-2 rounded text-xs">
-                                    DOI
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                    <div className="mb-10">
-                        <h2 className="font-medium md:text-lg">FAMID: False Alarms Mitigation in IoMT Devices</h2>
-                        <p className="text-base text-gray-600 mb-2">Shakil Mahmud, Myles Keller, Samir Ahmed, Robert Karam</p>
-                        <p className="text-base">IFIP International Internet of Things (IoT) Conference, 2023</p>
-                        <div className="flex mt-1 space-x-4">
-                            <a href={FAMID} target="_blank" rel="noopener noreferrer">
-                                <button className="bg-black text-white py-0.5 px-2 rounded text-xs">
-                                    PDF
-                                </button>
-                            </a>
-                            <a href="https://doi.org/10.1007/978-3-031-45878-1_14" target="_blank" rel="noopener noreferrer">
-                                <button className="bg-black text-white py-0.5 px-2 rounded text-xs">
-                                    DOI
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  return (
+    <div id="research" className="bg-white py-10 px-6 h-screen snap-start snap-always md:pt-48">
+      <div className="flex flex-col md:flex-row max-w-5xl mx-auto">
+        <h1 className="text-left uppercase mb-8 md:mb-0 md:mr-8 font-medium md:w-1/4 md:text-lg">
+          Research
+        </h1>
+
+        <div className="flex flex-col md:w-3/4">
+          {papers.map((paper, index) => (
+            <PaperItem key={index} paper={paper} />
+          ))}
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Research;

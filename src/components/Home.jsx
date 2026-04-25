@@ -5,7 +5,7 @@ function Home() {
   return (
     <div
       id="home"
-      className="relative md:h-[90vh] h-[80vh] bg-cover bg-center"
+      className="relative h-screen snap-start snap-always bg-cover bg-center"
       style={{ backgroundImage: `url(${Profile})` }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
