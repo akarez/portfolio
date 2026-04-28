@@ -5,17 +5,15 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const isBlogPostPage = pathname.startsWith('/blog/');
-    if (isBlogPostPage) {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    } else {
+    if (pathname === '/blog') {
       const saved = sessionStorage.getItem('scroll-position');
       if (saved) {
-        const y = parseInt(saved, 10);
-        window.scrollTo({ top: y, behavior: 'instant' });
+        window.scrollTo({ top: parseInt(saved, 10), behavior: 'instant' });
         sessionStorage.removeItem('scroll-position');
+        return;
       }
     }
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, [pathname]);
 
   return null;

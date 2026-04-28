@@ -1,5 +1,4 @@
-import React from 'react';
-import { MdArrowOutward } from "react-icons/md";
+import Footer from '../components/Footer';
 
 const papers = [
   {
@@ -39,59 +38,59 @@ const papers = [
   },
 ];
 
-const PaperItem = ({ paper }) => (
-  <div className="mb-10">
-    <h2 className="font-medium md:text-lg">{paper.title}</h2>
-
-    <p
-      className="text-base text-gray-600 mb-2"
-      dangerouslySetInnerHTML={{
-        __html: paper.authors.replace(
-          /Samir Ahmed/g,
-          '<span class="underline underline-offset-2 decoration-gray-500">Samir Ahmed</span>'
-        ),
-      }}
-    />
-
-    <p className="text-base text-gray-800">
-      {paper.doi ? (
-        <a
-          href={paper.doi}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-black no-underline hover:text-black"
-        >
-          {paper.venue}, {paper.year}
-          <MdArrowOutward
-            size={18}
-            className="inline-block align-text-top ml-2 translate-y-[+1px]"
-          />
-        </a>
-      ) : (
-        <span>
-          {paper.venue}, {paper.year}
-        </span>
+function Authors({ authors }) {
+  return (
+    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+      {authors.split(/(Samir Ahmed)/).map((part, i) =>
+        part === 'Samir Ahmed' ? (
+          <span key={i} className="underline underline-offset-2 decoration-gray-400 dark:decoration-gray-500">
+            Samir Ahmed
+          </span>
+        ) : part
       )}
     </p>
-  </div>
-);
+  );
+}
 
-function Research() {
+function PaperItem({ paper }) {
+  const inner = (
+    <>
+      <div className="flex justify-between items-baseline gap-4">
+        <h2 className="font-medium md:text-base">{paper.title}</h2>
+        <span className="text-sm text-gray-400 dark:text-gray-500 shrink-0">{paper.year}</span>
+      </div>
+      <Authors authors={paper.authors} />
+      <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">{paper.venue}</p>
+    </>
+  );
+
+  if (paper.doi) {
+    return (
+      <a
+        href={paper.doi}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block py-6 border-b border-gray-100 dark:border-zinc-800 hover:bg-gray-50 dark:hover:bg-zinc-900 px-4 -mx-4 transition-colors text-black dark:text-white"
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  return <div className="py-6 border-b border-gray-100 dark:border-zinc-800 px-4 -mx-4">{inner}</div>;
+}
+
+export default function ResearchPage() {
   return (
-    <div id="research" className="bg-white py-10 px-6 h-screen snap-start snap-always md:pt-48">
-      <div className="flex flex-col md:flex-row max-w-5xl mx-auto">
-        <h1 className="text-left uppercase mb-8 md:mb-0 md:mr-8 font-medium md:w-1/4 md:text-lg">
-          Research
-        </h1>
-
-        <div className="flex flex-col md:w-3/4">
+    <>
+      <div className="min-h-screen bg-white dark:bg-black px-10 md:px-24 pt-28 pb-20">
+        <div className="max-w-3xl mx-auto w-full border-t border-gray-100 dark:border-zinc-800">
           {papers.map((paper, index) => (
             <PaperItem key={index} paper={paper} />
           ))}
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
-
-export default Research;
